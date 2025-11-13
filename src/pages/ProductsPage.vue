@@ -19,17 +19,6 @@ onBeforeMount(async () => {
   }
 });
 
-/*function handleProductUpdate(updatedProduct) {
-  const index = products.value.findIndex(p => p._id === updatedProduct._id);
-  if (index !== -1) {
-    products.value[index] = { ...updatedProduct };
-    products.value = [...products.value];
-  }
-}
-
-function handleProductArchive(archivedProductId) {
-  products.value = products.value.filter(p => p._id !== archivedProductId);
-}*/
 </script>
 
 <template>

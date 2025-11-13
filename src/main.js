@@ -61,7 +61,6 @@ import { useGlobalStore } from './stores/global.js'
 router.beforeEach((to, from, next) => {
   const store = useGlobalStore()
 
-  // Admin-only pages
   if (to.meta.requiresAdmin && !store.user?.isAdmin) {
     return next({ name: 'Home' }) 
   }
