@@ -3,19 +3,23 @@ import { ref, onBeforeMount } from "vue";
 import ProductComponent from "../components/ProductComponent.vue";
 import ProductSearch from "../components/ProductSearchComponent.vue";
 import api from "../api";
+import { useGlobalStore } from "../stores/global";
 
 const products = ref([]);
+const { user } = useGlobalStore(); // get logged-in user
 
 onBeforeMount(async () => {
   try {
-    const { data } = await api.get("/products/active");
+    let data;
+      const res = await api.get("/products/active"); 
+      data = res.data;
     products.value = data;
   } catch (error) {
-    console.error("Error loading products:", error);
+    console.error("Error loading products:", error.response?.data || error.message);
   }
 });
 
-function handleProductUpdate(updatedProduct) {
+/*function handleProductUpdate(updatedProduct) {
   const index = products.value.findIndex(p => p._id === updatedProduct._id);
   if (index !== -1) {
     products.value[index] = { ...updatedProduct };
@@ -25,7 +29,7 @@ function handleProductUpdate(updatedProduct) {
 
 function handleProductArchive(archivedProductId) {
   products.value = products.value.filter(p => p._id !== archivedProductId);
-}
+}*/
 </script>
 
 <template>
@@ -34,7 +38,7 @@ function handleProductArchive(archivedProductId) {
       <div class="col my-5 text-center">
         <h1 class="text-primary">Our Products</h1>
         <p>Browse our available items below!</p>
-         <ProductSearch />
+        <ProductSearch />
       </div>
     </div>
 

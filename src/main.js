@@ -12,16 +12,11 @@ import { useGlobalStore } from './stores/global.js'
 
   import HomePage from './pages/HomePage.vue';
 
-  //import CoursesPage from './pages/CoursesPage.vue';
-  //import NewsPage from './pages/NewsPage.vue';
   import RegisterPage from './pages/RegisterPage.vue'
-  import ProductsPage from './pages/ProductsPage.vue'
+  import ProductSwitcher from './pages/ProductSwitcher.vue'
   import LoginPage from './pages/LoginPage.vue'
   import LogoutPage from './pages/LogoutPage.vue'
-  //import ErrorPage from './pages/ErrorPage.vue'
-  //import ProfilePage from './pages/ProfilePage.vue'
-  //import ViewCourse from "./pages/ViewCourse.vue"; // << added
-  //import AddCourse from "./pages/AddCourse.vue";
+
 
 
   import { createRouter, createWebHistory } from 'vue-router';
@@ -38,37 +33,10 @@ import { useGlobalStore } from './stores/global.js'
         {
             path: '/products',
             name: 'Products',
-            component: ProductsPage
+            component: ProductSwitcher
         },
 
-        /*{
-            path: '/courses',
-            name: 'Courses',
-            component: CoursesPage
-        },
-        {
-            //This route allows the use of a params, denoted by a colon.
-            //Which means we can switch to this page and pass data in the url.
-            //ex. /courses/1234
-            //We can then retrieve the data passed from the url as id.
-            path: "/courses/:id",
-            component: ViewCourse,
-        }, // << added
-        {
-            path: '/news',
-            name: 'News',
-            component: NewsPage
-        },
-        {
-            path: '/profile',
-            name: 'Profile',
-            component: ProfilePage
-        },
-        {
-            path: '/add-courses',
-            name: 'AddCourse',
-            component: AddCourse
-        },*/
+ 
         {
             path: '/register',
             name: 'Register',
@@ -90,7 +58,16 @@ import { useGlobalStore } from './stores/global.js'
         }*/
     ]
   })
+router.beforeEach((to, from, next) => {
+  const store = useGlobalStore()
 
+  // Admin-only pages
+  if (to.meta.requiresAdmin && !store.user?.isAdmin) {
+    return next({ name: 'Home' }) 
+  }
+
+  next()
+})
 
 
 const app = createApp(App)

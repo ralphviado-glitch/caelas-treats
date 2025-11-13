@@ -7,6 +7,7 @@
         <p>Price: ${{ productData.price }}</p>
 
         <div class="d-grid">
+    
           <router-link
             class="btn btn-outline-primary mb-2"
             :to="`/products/${productData._id}`"
@@ -15,7 +16,7 @@
           </router-link>
 
           <button
-            v-if="user.isAdmin"
+            v-if="user.value?.isAdmin"
             class="btn btn-outline-success mb-2"
             @click="openEditModal"
           >
@@ -23,7 +24,7 @@
           </button>
 
           <button
-            v-if="user.isAdmin"
+            v-if="user.value?.isAdmin"
             class="btn btn-outline-danger"
             @click="archiveProduct"
           >
@@ -76,7 +77,7 @@ const notyf = new Notyf();
 const props = defineProps({ productData: Object });
 const emit = defineEmits(["product-updated", "product-archived"]);
 
-const { user } = useGlobalStore();
+const { user } = useGlobalStore(); // <-- pinia store with user info
 const name = ref(props.productData.name);
 const description = ref(props.productData.description);
 const price = ref(props.productData.price);
@@ -91,33 +92,4 @@ watch(
   { deep: true }
 );
 
-function openEditModal() {
-  const modal = new bootstrap.Modal(document.getElementById(`editModal-${props.productData._id}`));
-  modal.show();
-}
-
-async function updateProduct() {
-  try {
-    const updatedData = { name: name.value, description: description.value, price: price.value };
-    const { data } = await api.patch(`/products/${props.productData._id}`, updatedData);
-    notyf.success("Product updated!");
-    emit("product-updated", { ...props.productData, ...data });
-    bootstrap.Modal.getInstance(document.getElementById(`editModal-${props.productData._id}`)).hide();
-  } catch (error) {
-    console.error(error);
-    notyf.error("Update failed.");
-  }
-}
-
-async function archiveProduct() {
-  if (!confirm("Archive this product?")) return;
-  try {
-    await api.patch(`/products/${props.productData._id}/archive`);
-    notyf.success("Product archived!");
-    emit("product-archived", props.productData._id);
-  } catch (error) {
-    console.error(error);
-    notyf.error("Failed to archive.");
-  }
-}
 </script>

@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
-import axios from "axios";
+import api from "../api"; // use your api instance (handles baseURL + token)
+
 
 export const useGlobalStore = defineStore("global", () => {
-  let user = reactive({
+
+  const user = reactive({
     token: localStorage.getItem("token"),
     email: null,
     firstName: null,
@@ -13,42 +15,59 @@ export const useGlobalStore = defineStore("global", () => {
     isLoading: false,
   });
 
-
   const storedUser = localStorage.getItem("user");
   if (storedUser) {
     Object.assign(user, JSON.parse(storedUser));
   }
 
-  async function getUserDetails(token) {
-    if (!token) {
-      clearUser();
-      return;
-    }
+async function getUserDetails(token) {
+  user.isLoading = true;
 
-    user.isLoading = true;
-
-    try {
-      const { data } = await axios.get("http://localhost:4000/users/details", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      user.email = data.email;
-      user.firstName = data.firstName;
-      user.lastName = data.lastName;
-      user.mobileNo = data.mobileNo;
-      user.isAdmin = data.isAdmin;
-      user.token = token;
-
-      
-      localStorage.setItem("user", JSON.stringify(user));
-    } catch (error) {
-      console.error("Error fetching user details:", error);
-      clearUser();
-    } finally {
-      user.isLoading = false;
-    }
+  if (!token) {
+    clearUser();
+    user.isLoading = false;
+    return;
   }
 
+  try {
+    const res = await api.get("/users/details");
+    const data = res.data;
+
+    console.log("[getUserDetails] server response:", data);
+
+    const userData = data.user || data;
+
+    user.email = userData.email || null;
+    user.firstName = userData.firstName || null;
+    user.lastName = userData.lastName || null;
+    user.mobileNo = userData.mobileNo || null;
+
+    user.isAdmin =
+      userData.isAdmin === true ||
+      userData.isAdmin === "true" ||
+      userData.isAdmin === 1;
+
+    user.token = token;
+
+    const plainUser = {
+      token: user.token,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      mobileNo: user.mobileNo,
+      isAdmin: user.isAdmin,
+    };
+
+    localStorage.setItem("user", JSON.stringify(plainUser));
+
+    console.log("[getUserDetails] user.isAdmin:", user.isAdmin);
+  } catch (error) {
+    console.error("[getUserDetails] Error fetching user details:", error);
+    clearUser();
+  } finally {
+    user.isLoading = false;
+  }
+}
   function clearUser() {
     user.token = null;
     user.email = null;
@@ -72,3 +91,4 @@ export const useGlobalStore = defineStore("global", () => {
     updateUserProfile,
   };
 });
+
