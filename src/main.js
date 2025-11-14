@@ -11,11 +11,12 @@ import App from './App.vue';
 import { useGlobalStore } from './stores/global.js'
 
   import HomePage from './pages/HomePage.vue';
-
   import RegisterPage from './pages/RegisterPage.vue'
   import ProductSwitcher from './pages/ProductSwitcher.vue'
   import LoginPage from './pages/LoginPage.vue'
   import LogoutPage from './pages/LogoutPage.vue'
+  import ProductDetail from './pages/ProductDetail.vue'
+  import CartView from './pages/CartView.vue'
 
 
 
@@ -52,6 +53,14 @@ import { useGlobalStore } from './stores/global.js'
             name: 'Logout',
             component: LogoutPage
         },
+        {   path: "/products/:productId", 
+            name: "ProductDetail", 
+            component: ProductDetail 
+        },
+        {   path: "/cart", 
+            name: "CartView", 
+            component: CartView 
+        }
 /*        {
             path: '/:catchAll(.*)',
             component: ErrorPage

@@ -14,7 +14,10 @@
            <router-link class="nav-link" :to="{ name: 'Products' }" v-if="isLoggedIn">
             {{ isAdmin ? 'Admin Dashboard' : 'Products' }}
           </router-link>
-
+          <router-link class="nav-link" :to="{ name: 'CartView' }"
+                       v-if="isLoggedIn">
+            Cart View
+          </router-link>
           <router-link class="nav-link" :to="{ name: 'Register' }"
                        v-if="!isLoggedIn">
             Register
