@@ -44,4 +44,4 @@ import { useGlobalStore } from '../stores/global.js'
 const store = useGlobalStore()
 const isLoggedIn = computed(() => store.user?.token)
 const isAdmin = computed(() => store.user?.isAdmin)
-</script>
+</script>   
