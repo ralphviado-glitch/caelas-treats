@@ -12,6 +12,7 @@ const loadCart = async () => {
   try {
     const res = await api.get("/cart/get-cart");
     const cartItems = res.data.cartItems;
+
     const itemsWithNames = await Promise.all(
       cartItems.map(async (item) => {
         try {
@@ -117,10 +118,14 @@ onBeforeMount(loadCart);
         </tfoot>
       </table>
 
-      <div class="text-end mt-3">
+      <div class="text-end mt-3 d-flex justify-content-end gap-2">
         <button class="btn btn-outline-danger" @click="clearCart">
           Clear Cart
         </button>
+
+        <router-link :to="{ name: 'Home' }" class="btn btn-primary">
+          Proceed to Checkout
+        </router-link>
       </div>
     </div>
 
