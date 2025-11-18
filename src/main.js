@@ -17,6 +17,8 @@ import { useGlobalStore } from './stores/global.js'
   import LogoutPage from './pages/LogoutPage.vue'
   import ProductDetail from './pages/ProductDetail.vue'
   import CartView from './pages/CartView.vue'
+  import Checkout from './pages/CheckoutView.vue'
+  import OrderSuccess from './pages/OrderSuccess.vue'
 
 
 
@@ -60,6 +62,16 @@ import { useGlobalStore } from './stores/global.js'
         {   path: "/cart", 
             name: "CartView", 
             component: CartView 
+        },
+        {
+          path: "/checkout",
+          name: "Checkout",
+          component: Checkout
+        },
+        {
+          path: "/order-success",
+          name: "OrderSuccess",
+          component: OrderSuccess
         }
 /*        {
             path: '/:catchAll(.*)',

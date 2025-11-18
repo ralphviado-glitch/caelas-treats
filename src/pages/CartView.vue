@@ -123,7 +123,7 @@ onBeforeMount(loadCart);
           Clear Cart
         </button>
 
-        <router-link :to="{ name: 'Home' }" class="btn btn-primary">
+        <router-link :to="{ name: 'Checkout' }" class="btn btn-primary">
           Proceed to Checkout
         </router-link>
       </div>
