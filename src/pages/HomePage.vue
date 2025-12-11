@@ -12,7 +12,7 @@
 			return {
 				bannerProps: {
 					title: "Caela's Treats",
-					//tagline: "Opportunities for every, everywhere",
+					tagline: "Say it with a Sweet Treat",
 					destination: "Products",
 					buttonLabel: "View Our Products"
 				}
@@ -22,8 +22,11 @@
 </script>
 
 <template>
-  <div class="container-fluid">
+
     <BannerComponent :bannerProps="bannerProps" />
-    <HighlightsComponent />
-  </div>
+    <div class="container-fluid">
+    	<HighlightsComponent />
+  	</div>
+    
+  
 </template>

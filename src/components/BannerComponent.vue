@@ -12,22 +12,31 @@
 <template>
   <div class="container-fluid">
     <div class="row mb-5 py-5" id="banner">
-      <div class="col-md-10 p-5">
-        <h1 class="mb-3" id="banner-title">{{bannerProps.title}}</h1>
-        <p class="mb-5" id="motto">
+      <div class="col-md-10 p-5 text-center text-md-start mx-auto">
+        <h1 id="banner-title">{{bannerProps.title}}</h1>
+        <p id="motto">
           {{bannerProps.tagline}}
         </p>
-        <router-link class="btn btn-primary btn-lg rounded-pill px-3" :to="{ name: bannerProps.destination }">{{bannerProps.buttonLabel}} <i class="bi bi-arrow-right"></i></router-link>
+        <router-link class="btn custom-banner-btn btn-lg border-4 rounded-pill px-5" :to="{ name: bannerProps.destination }">{{bannerProps.buttonLabel}}</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-  h1 {
-    font-family: serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-  }
+
+  .custom-banner-btn {
+  border-color: #2F386F !important;
+  color: #2F386F !important;
+  background-color: transparent !important;
+  transition: 0.3s ease;
+}
+
+.custom-banner-btn:hover {
+  background-color: #EF6890 !important;
+  border-color: #EF6890 !important; 
+  color: #FFFFFF !important;
+}
+
+
 </style>

@@ -1,18 +1,68 @@
-#banner-title {
-  font-family: "Trebuchet MS", sans-serif;
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+@font-face {
+  font-family: "Brice Pop";
+  src: url("./fonts/Brice-Bold.woff2") format("woff2"),
+       url("./fonts/Brice-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brice Pop";
+  src: url("./fonts/Brice-SemiBold.woff2") format("woff2"),
+       url("./fonts/Brice-SemiBold.woff") format("woff");
   font-weight: bolder;
-  font-size: 54px;
+  font-style: normal;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Brice Pop" !important;
+}
+
+#banner-title {
+  color: #2F386F;
+  font-family: "Brice Pop" !important;
+  font-weight: bold;
+  font-size: 80px;
+  
 }
 
 #motto {
-  font-family: "Trebuchet MS", sans-serif;
-  font-size: 1.7rem;
+  color: #EF6890;
+  font-family: "Brice Pop", sans-serif;
+  font-size: 2.5rem;
 }
 
 #banner {
-  background: url(https://i.imgur.com/frHbYvL.png),
-    linear-gradient(to right, rgb(255, 255, 255), 70%, rgba(126, 209, 247, 0.5));
+  background:
+    linear-gradient(to right, rgb(249, 249, 249), 35%, rgba(255, 255, 255, 0)),
+    url(/images/heroBanner.png);
   background-size: cover;
   background-position: center;
   height: 550px;
 }
+
+@media (max-width: 768px) {
+  #banner-title {
+    font-size: 65px;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  #motto {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  #banner {
+    height: auto;
+    padding: 3rem 1rem;
+    background-position: left;
+  }
+}
+
