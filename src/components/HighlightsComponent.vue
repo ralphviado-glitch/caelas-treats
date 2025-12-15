@@ -1,44 +1,54 @@
 <template>
     <div class="row my-5">
-        <h1 class="text-center text-primary mb-5">Why choose our Products?</h1>
-        <div id="highlight1" class="col-md-4">
-            <div id="highlight1" class="card p-2 min-height-100">
-                <div class="card-body">
-                    <h1 class="text-center display-2 text-primary"><i class="bi bi-house-heart"></i></h1>
-                    <h4 class="card-title text-center">
-                        Made for your Holiday Celebrations
-                    </h4>
-                    <p class="card-text mt-3">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat eum molestiae nisi mollitia minima quidem? Veniam consequatur enim cumque odio dolorem, ullam adipisci nobis deserunt repudiandae excepturi harum at debitis.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div id="highlight2" class="col-md-4">
-            <div class="card p-2 min-height-100">
-                <div class="card-body">
-                    <h1 class="text-center display-1 text-primary"><i class="bi bi-cash-coin"></i></h1>
-                    <h4 class="card-title text-center">
-                        Forever sharing joy from our home to yours.
-                    </h4>
-                    <p class="card-text mt-3">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat eum molestiae nisi mollitia minima quidem? Veniam consequatur enim cumque odio dolorem, ullam adipisci nobis deserunt repudiandae excepturi harum at debitis.
-                    </p>
-                </div>
-            </div>
-        </div>
-             
-        <div id="highlight3" class="col-md-4">
-            <div class="card p-2 min-height-100">
-                <div class="card-body">
-                    <h1 class="text-center display-1 text-primary"><i class="bi bi-people"></i></h1>
-                    <h4 class="card-title text-center">
-                        Celebrate Every Milestone with us
-                    </h4>
-                    <p class="card-text mt-3">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat eum molestiae nisi mollitia minima quidem? Veniam consequatur enim cumque odio dolorem, ullam adipisci nobis deserunt repudiandae excepturi harum at debitis.
-                    </p>
+        <div class="container">
+            <div class="container">
+                <h2 class="text-center mb-5">Our Bestsellers!</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col">
+                    <div class="card h-100">
+                      <img src="/images/PistachioCrunch.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Pistachio Crunch</h3>
+                        <p class="card-text">$35.00</p>
+                        <router-link
+                          class="btn custom-banner-btn border-3 rounded-pill"
+                          :to="{ name: 'ProductDetail', params: { productId: '68f0d382fe3a455e6f0c71e3' } }"
+                        >
+                          View Product
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100">
+                      <img src="/images/BlueberryCheesecake.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Blueberry Cheesecake</h3>
+                        <p class="card-text">$35.00</p>
+                        <router-link
+                          class="btn custom-banner-btn border-3 rounded-pill"
+                          :to="{ name: 'ProductDetail', params: { productId: '68f0d39afe3a455e6f0c71e5' } }"
+                        >
+                          View Product
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100">
+                      <img src="/images/ChocoOverload.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Choco Overload</h3>
+                        <p class="card-text">$35.00</p>
+                        <router-link
+                          class="btn custom-banner-btn border-3 rounded-pill"
+                          :to="{ name: 'ProductDetail', params: { productId: '68f0d3affe3a455e6f0c71e7' } }"
+                        >
+                          View Product
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>

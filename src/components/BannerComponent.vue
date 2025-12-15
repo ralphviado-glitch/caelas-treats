@@ -25,18 +25,7 @@
 
 <style scoped>
 
-  .custom-banner-btn {
-  border-color: #2F386F !important;
-  color: #2F386F !important;
-  background-color: transparent !important;
-  transition: 0.3s ease;
-}
 
-.custom-banner-btn:hover {
-  background-color: #EF6890 !important;
-  border-color: #EF6890 !important; 
-  color: #FFFFFF !important;
-}
 
 
 </style>

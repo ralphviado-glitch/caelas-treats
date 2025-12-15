@@ -1,15 +1,20 @@
 <template>
   <div class="col-md-4">
-    <div class="card p-3 h-100">
+    <div class="card h-100">
+       <img
+          :src="productData.image"
+          class="card-img-top"
+          :alt="productData.name"
+        />
       <div class="card-body">
         <h4>{{ productData.name }}</h4>
-        <p>{{ productData.description }}</p>
+       <!--  <p>{{ productData.description }}</p> -->
         <p>Price: ${{ productData.price }}</p>
 
         <div class="d-grid">
     
           <router-link
-            class="btn btn-outline-primary mb-2"
+            class="btn custom-banner-btn border-3 rounded-pill"
             :to="`/products/${productData._id}`"
           >
             View Product

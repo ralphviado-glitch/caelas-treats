@@ -1,7 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg sticky-top bg-light shadow-sm">
     <div class="container">
-      <router-link :to="{ name: 'Home' }" class="navbar-brand">ECommerce</router-link>
+      <router-link :to="{ name: 'Home' }" class="navbar-brand d-flex align-items-center">
+        <img
+          src="/images/logo.svg"
+          alt="Caela's Treats"
+          class="navbar-logo"
+        />
+      </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
         aria-expanded="false" aria-label="Toggle navigation">

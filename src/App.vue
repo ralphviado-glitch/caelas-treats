@@ -1,5 +1,6 @@
 <script setup>
 import NavbarComponent from './components/NavbarComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 import { useGlobalStore } from './stores/global.js'
 import { onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
@@ -29,5 +30,6 @@ onBeforeMount(async () => {
 <template>
   <NavbarComponent />
   <router-view />
+  <FooterComponent />
 </template>
 

@@ -1,5 +1,7 @@
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -21,21 +23,37 @@ body {
 
 
 h1, h2, h3, h4, h5, h6 {
+  color: #2F386F !important;
   font-family: "Brice Pop" !important;
+  font-weight: bold;
 }
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+
 
 #banner-title {
   color: #2F386F;
   font-family: "Brice Pop" !important;
   font-weight: bold;
-  font-size: 80px;
+  font-size: 72px;
   
 }
 
 #motto {
   color: #EF6890;
   font-family: "Brice Pop", sans-serif;
-  font-size: 2.5rem;
+  font-size: 40px;
 }
 
 #banner {
@@ -46,6 +64,82 @@ h1, h2, h3, h4, h5, h6 {
   background-position: center;
   height: 550px;
 }
+
+  .custom-banner-btn {
+  border-color: #2F386F !important;
+  color: #2F386F !important;
+  background-color: transparent !important;
+  transition: 0.3s ease;
+}
+
+.custom-banner-btn:hover {
+  background-color: #EF6890 !important;
+  border-color: #EF6890 !important; 
+  color: #FFFFFF !important;
+}
+
+.product-detail-img {
+  max-height: 400px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.navbar-logo {
+  height: 48px;
+  width: auto;
+}
+
+.footer-logo {
+  height: 100px;
+  width: auto;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+  max-width: 260px;
+}
+
+.footer-heading {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-icon {
+  height: 24px;
+  width: 24px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.footer-icon:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  font-size: 0.85rem;
+  color: #EF6890;
+  margin-bottom: 0 !important;
+}
+
+
+
+
+
 
 @media (max-width: 768px) {
   #banner-title {

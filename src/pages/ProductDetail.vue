@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import api from "../api";
 import { Notyf } from "notyf";
 import "notyf/notyf.min.css";
+import FooterComponent from "../components/FooterComponent.vue";
 
 const route = useRoute();
 const product = ref(null);
@@ -40,18 +41,19 @@ const addToCart = async () => {
 <template>
   <div class="container py-5" v-if="product">
     <div class="row">
-<!--       <div class="col-md-6 text-center">
+       <div class="col-md-6 text-center">
         <img
-          :src="product.imageUrl || 'https://via.placeholder.com/400'"
-          class="img-fluid rounded shadow-sm"
-          alt="Product Image"
-        />
-      </div> -->
+            :src="product.image || 'https://via.placeholder.com/400'"
+            class="img-fluid rounded product-detail-img"
+            :alt="product.name"
+          />
+
+      </div>
 
       <div class="col-md-6">
-        <h2 class="text-primary">{{ product.name }}</h2>
+        <h2>{{ product.name }}</h2>
         <p class="lead">{{ product.description }}</p>
-        <h4 class="text-success mb-4">$ {{ product.price.toFixed(2) }}</h4>
+        <h4 class="mb-4">$ {{ product.price.toFixed(2) }}</h4>
 
         <div class="d-flex align-items-center mb-3">
           <label for="qty" class="me-2">Quantity:</label>
@@ -64,7 +66,7 @@ const addToCart = async () => {
           />
         </div>
 
-        <button @click="addToCart" class="btn btn-primary">
+        <button @click="addToCart" class="btn custom-banner-btn border-3 rounded-pill px-5">
           <i class="bi bi-cart-plus me-1"></i> Add to Cart
         </button>
       </div>

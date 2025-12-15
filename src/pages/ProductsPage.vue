@@ -2,6 +2,7 @@
 import { ref, onBeforeMount } from "vue";
 import ProductComponent from "../components/ProductComponent.vue";
 import ProductSearch from "../components/ProductSearchComponent.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 import api from "../api";
 import { useGlobalStore } from "../stores/global";
 
@@ -25,13 +26,13 @@ onBeforeMount(async () => {
   <div class="container">
     <div class="row">
       <div class="col my-5 text-center">
-        <h1 class="text-primary">Our Products</h1>
+        <h1>Our Products</h1>
         <p>Browse our available items below!</p>
         <ProductSearch />
       </div>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-4 mb-5">
       <ProductComponent
         v-for="product in products"
         :key="product._id"

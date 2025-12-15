@@ -2,11 +2,13 @@
 	
 	import BannerComponent from '../components/BannerComponent.vue';
 	import HighlightsComponent from '../components/HighlightsComponent.vue';
+	import FooterComponent from '../components/FooterComponent.vue';
 
 	export default {
 		components: {
 			BannerComponent,
-			HighlightsComponent
+			HighlightsComponent,
+			FooterComponent
 		},
 		data() {
 			return {
@@ -27,6 +29,5 @@
     <div class="container-fluid">
     	<HighlightsComponent />
   	</div>
-    
   
 </template>
